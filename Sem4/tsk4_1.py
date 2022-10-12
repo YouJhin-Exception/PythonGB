@@ -8,6 +8,8 @@
 from decimal import Decimal
 
 # numb = float(input("Введите число- "))
+# print(type(numb))
+
 # acc = float(input("Введите точность- "))
 
 
