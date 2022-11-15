@@ -72,14 +72,20 @@ def lose(cell_1, cell_2, cell_3):
 async def send_welcome(message: types.Message):
     keybord = types.ReplyKeyboardMarkup(resize_keyboard=True)
     keybord.row_width = 2
-    bt = [emoji.emojize(':red_question_mark:help'), emoji.emojize(':alarm_clock:time'), emoji.emojize(':video_game:play')]
+    bt = [emoji.emojize(':red_question_mark:help'), emoji.emojize(':alarm_clock:time'), emoji.emojize(':video_game:play'), emoji.emojize(':mobile_phone:calc')]
     keybord.add(*bt)
     await message.reply(f"Привет! {message.from_user.full_name} Я новый бот. \nМои команды это кнопочки снизу.\nС чего начнем?" , reply_markup=keybord)
     await log_g2(message)
 
 @dp.message_handler(Text(equals = [emoji.emojize(':red_question_mark:help')]))
 async def c_help(message: types.Message):
-    await message.reply(emoji.emojize(':red_question_mark:help - справка по командам\n:alarm_clock:time - текущее время\n:video_game:play - играем в крестики & нолики'))
+    await message.reply(emoji.emojize(':red_question_mark:help - справка по командам\n:alarm_clock:time - текущее время\n:video_game:play - играем в крестики & нолики\n:mobile_phone:calc - калькулируем'))
+    await log_g2(message)
+
+@dp.message_handler(Text(equals = [emoji.emojize(':mobile_phone:calc')]))
+async def c_help(message: types.Message):
+    await message.reply(emoji.emojize('ааа, мы хотим посчитать :man_technologist:'))
+
     await log_g2(message)
 
 @dp.message_handler(Text(equals = [emoji.emojize(':alarm_clock:time')]))
